@@ -1,0 +1,15 @@
+# virtual environment
+testenv/
+
+# python cache
+__pycache__/
+*.pyc
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+
+# environment variables
+.env
