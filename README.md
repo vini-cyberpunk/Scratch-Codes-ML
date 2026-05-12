@@ -10,9 +10,10 @@ The goal is not just to use ML models, but to build them manually from first pri
 
 ## 1. Linear Regression (Closed-Form Solution)
 
-Implemented Ordinary Least Squares (OLS) Linear Regression using the Normal Equation / Moore-Penrose pseudo-inverse.
+Implemented Ordinary Least Squares (OLS) Linear Regression using the Moore-Penrose pseudo-inverse.
 
 ### Features
+
 - Multi-feature support
 - Automatic bias/intercept handling
 - Moore-Penrose pseudo-inverse based solution
@@ -25,7 +26,7 @@ Implemented Ordinary Least Squares (OLS) Linear Regression using the Normal Equa
 Closed-form solution:
 
 $$
-\theta = X^+ y
+\theta = X^{+}y
 $$
 
 Prediction equation:
@@ -36,11 +37,12 @@ $$
 
 ---
 
-## 2. Linear Regression using Gradient Descent
+## 2. Linear Regression using Batch Gradient Descent
 
 Implemented multivariable Linear Regression using Batch Gradient Descent optimization.
 
 ### Features
+
 - Fully vectorized gradient descent
 - Multi-feature support
 - Automatic bias/intercept handling
@@ -71,7 +73,7 @@ $$
 \nabla J(\theta)=\frac{1}{n}X^T(X\theta-y)
 $$
 
-Gradient Descent Update Rule:
+Gradient Descent update rule:
 
 $$
 \theta := \theta - \alpha \nabla J(\theta)
@@ -85,10 +87,121 @@ $$
 
 ---
 
+## 3. Linear Regression using Stochastic Gradient Descent (SGD)
+
+Implemented multivariable Linear Regression using Stochastic Gradient Descent optimization.
+
+### Features
+
+- Stochastic Gradient Descent optimization
+- Per-sample weight updates
+- Random shuffling every epoch
+- Multi-feature support
+- Automatic bias/intercept handling
+- Configurable learning rate
+- Configurable convergence tolerance
+- Maximum iteration handling
+- Runtime convergence warnings
+- Feature validation during prediction
+- Supports both 1D and 2D input arrays
+
+### Mathematical Formulation
+
+Prediction equation:
+
+$$
+\hat{y}_i = x_i^T\theta
+$$
+
+Cost function:
+
+$$
+J(\theta)=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
+$$
+
+Per-sample gradient:
+
+$$
+\nabla J_i(\theta)=-(y_i-\hat{y}_i)x_i
+$$
+
+SGD update rule:
+
+$$
+\theta := \theta - \alpha \nabla J_i(\theta)
+$$
+
+Equivalent update equation:
+
+$$
+\theta := \theta + \alpha (y_i-\hat{y}_i)x_i
+$$
+
+---
+
+# Learning Roadmap
+
+```text
+========================
+REGRESSION MODELS
+========================
+
+✅ 1. Linear Regression (Closed Form)
+
+✅ 2. Linear Regression using Batch Gradient Descent
+
+✅ 3. Linear Regression using SGD
+
+⬜ 4. Linear Regression using Mini-Batch Gradient Descent
+
+⬜ 5. Learning Rate Schedules
+
+⬜ 6. Regularization
+      ├── Ridge Regression (L2)
+      └── Lasso Regression (L1)
+
+⬜ 7. Kernel Regression
+
+⬜ 8. PCA
+
+
+========================
+CLASSIFICATION MODELS
+========================
+
+⬜ 9. Logistic Regression
+
+⬜ 10. Naive Bayes
+
+⬜ 11. K-Nearest Neighbors (KNN)
+
+⬜ 12. Support Vector Classifier (SVC)
+
+⬜ 13. Decision Trees
+
+⬜ 14. Random Forests
+```
+
+---
+
 # Technologies Used
 
 - Python
 - NumPy
+
+---
+
+# Repository Structure
+
+```text
+Scratch-Codes-ML/
+│
+├── linear_regression.py
+├── linear_regression_gd.py
+├── sgd_regressor.py
+├── README.md
+└── LICENSE
+```
 
 ---
 
@@ -103,46 +216,14 @@ $$
 
 ---
 
-# Future Implementations
-
-- Logistic Regression
-- K-Nearest Neighbors (KNN)
-- Decision Trees
-- Random Forests
-- Support Vector Machines (SVM)
-- Naive Bayes
-- Principal Component Analysis (PCA)
-- Neural Networks
-- Backpropagation from scratch
-- Optimizers (SGD, Momentum, Adam)
-
----
-
-# Repository Structure
-
-```text
-Scratch-Codes-ML/
-│
-├── LinearRegression/
-│   ├── closed_form/
-│   └── gradient_descent/
-│
-├── tests/
-├── README.md
-└── requirements.txt
-```
-
----
-
 # Learning Philosophy
 
 This repository focuses on:
-
-- Mathematical derivations
-- Vectorized implementations
-- Numerical optimization
-- Understanding how algorithms actually work internally
-- Writing ML code without relying on high-level ML frameworks
+- mathematical derivations
+- vectorized implementations
+- numerical optimization
+- understanding how algorithms work internally
+- building ML models from scratch instead of relying on high-level libraries
 
 ---
 
