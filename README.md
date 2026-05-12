@@ -1,20 +1,22 @@
 # Scratch-Codes-ML
 
-In this repository, I implement Machine Learning models from scratch using only NumPy and Python to deeply understand the mathematical foundations and internal working mechanisms of ML algorithms.
+In this repository, I implement Machine Learning algorithms completely from scratch using only Python and NumPy to deeply understand their mathematical foundations, optimization procedures, and internal working mechanisms.
+
+The goal is not just to use ML models, but to build them manually from first principles.
 
 ---
 
 # Implemented Models
 
-## 1. Linear Regression
+## 1. Linear Regression (Closed-Form Solution)
 
-Implemented Ordinary Least Squares (OLS) Linear Regression from scratch using the closed-form solution.
+Implemented Ordinary Least Squares (OLS) Linear Regression using the Normal Equation / Moore-Penrose pseudo-inverse.
 
 ### Features
 - Multi-feature support
 - Automatic bias/intercept handling
-- Uses Moore-Penrose pseudo-inverse
-- Vectorized NumPy implementation
+- Moore-Penrose pseudo-inverse based solution
+- Fully vectorized NumPy implementation
 - Feature validation during prediction
 - Supports both 1D and 2D input arrays
 
@@ -34,6 +36,55 @@ $$
 
 ---
 
+## 2. Linear Regression using Gradient Descent
+
+Implemented multivariable Linear Regression using Batch Gradient Descent optimization.
+
+### Features
+- Fully vectorized gradient descent
+- Multi-feature support
+- Automatic bias/intercept handling
+- Configurable learning rate
+- Configurable convergence tolerance
+- Maximum iteration handling
+- Runtime convergence warnings
+- Feature validation during prediction
+- Supports both 1D and 2D input arrays
+
+### Mathematical Formulation
+
+Prediction equation:
+
+$$
+\hat{y} = X\theta
+$$
+
+Cost function:
+
+$$
+J(\theta)=\frac{1}{2n}\|X\theta-y\|^2
+$$
+
+Gradient:
+
+$$
+\nabla J(\theta)=\frac{1}{n}X^T(X\theta-y)
+$$
+
+Gradient Descent Update Rule:
+
+$$
+\theta := \theta - \alpha \nabla J(\theta)
+$$
+
+Equivalent update equation:
+
+$$
+\theta := \theta - \alpha \frac{1}{n}X^T(X\theta-y)
+$$
+
+---
+
 # Technologies Used
 
 - Python
@@ -43,21 +94,55 @@ $$
 
 # Goals of This Repository
 
-- Understand ML algorithms mathematically
-- Implement models without ML libraries
+- Understand Machine Learning mathematically
+- Implement ML algorithms without ML libraries
 - Learn vectorized numerical computing
-- Build intuition for optimization and learning algorithms
+- Build intuition for optimization algorithms
+- Understand gradient-based learning
+- Develop strong fundamentals in ML and numerical methods
 
 ---
 
 # Future Implementations
 
-- Linear Regression using Gradient Descent
 - Logistic Regression
-- K-Nearest Neighbors
+- K-Nearest Neighbors (KNN)
 - Decision Trees
+- Random Forests
+- Support Vector Machines (SVM)
+- Naive Bayes
+- Principal Component Analysis (PCA)
 - Neural Networks
-- Support Vector Machines
+- Backpropagation from scratch
+- Optimizers (SGD, Momentum, Adam)
+
+---
+
+# Repository Structure
+
+```text
+Scratch-Codes-ML/
+│
+├── LinearRegression/
+│   ├── closed_form/
+│   └── gradient_descent/
+│
+├── tests/
+├── README.md
+└── requirements.txt
+```
+
+---
+
+# Learning Philosophy
+
+This repository focuses on:
+
+- Mathematical derivations
+- Vectorized implementations
+- Numerical optimization
+- Understanding how algorithms actually work internally
+- Writing ML code without relying on high-level ML frameworks
 
 ---
 
