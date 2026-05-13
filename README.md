@@ -139,6 +139,59 @@ $$
 
 ---
 
+## 4. Linear Regression using Mini-Batch Gradient Descent
+
+Implemented multivariable Linear Regression using Mini-Batch Gradient Descent optimization.
+
+### Features
+
+- Mini-Batch Gradient Descent optimization
+- Random shuffling every epoch
+- Configurable mini-batch size
+- Multi-feature support
+- Automatic bias/intercept handling
+- Configurable learning rate
+- Configurable convergence tolerance
+- Maximum iteration handling
+- Runtime convergence warnings
+- Fully vectorized batch updates
+- Feature validation during prediction
+- Supports both 1D and 2D input arrays
+
+### Mathematical Formulation
+
+Prediction equation:
+
+$$
+\hat{y} = X\theta
+$$
+
+Mini-batch cost function:
+
+$$
+J(\theta)=\frac{1}{m}\sum_{i=1}^{m}(y_i-\hat{y}_i)^2
+$$
+
+Mini-batch gradient:
+
+$$
+\nabla J(\theta)=\frac{1}{m}X^T(X\theta-y)
+$$
+
+Mini-Batch Gradient Descent update rule:
+
+$$
+\theta := \theta - \alpha \nabla J(\theta)
+$$
+
+Equivalent update equation:
+
+$$
+\theta := \theta - \alpha \frac{1}{m}X^T(X\theta-y)
+$$
+
+---
+
 # Learning Roadmap
 
 ```text
@@ -152,7 +205,7 @@ REGRESSION MODELS
 
 ✅ 3. Linear Regression using SGD
 
-⬜ 4. Linear Regression using Mini-Batch Gradient Descent
+✅ 4. Linear Regression using Mini-Batch Gradient Descent
 
 ⬜ 5. Learning Rate Schedules
 
@@ -199,6 +252,7 @@ Scratch-Codes-ML/
 ├── linear_regression.py
 ├── linear_regression_gd.py
 ├── sgd_regressor.py
+├── mini_batch_gd_regressor.py
 ├── README.md
 └── LICENSE
 ```
