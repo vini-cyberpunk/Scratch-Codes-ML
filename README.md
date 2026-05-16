@@ -14,12 +14,12 @@ Implemented Ordinary Least Squares (OLS) Linear Regression using the Moore-Penro
 
 ### Features
 
-- Multi-feature support
-- Automatic bias/intercept handling
-- Moore-Penrose pseudo-inverse based solution
-- Fully vectorized NumPy implementation
-- Feature validation during prediction
-- Supports both 1D and 2D input arrays
+* Multi-feature support
+* Automatic bias/intercept handling
+* Moore-Penrose pseudo-inverse based solution
+* Fully vectorized NumPy implementation
+* Feature validation during prediction
+* Supports both 1D and 2D input arrays
 
 ### Mathematical Formulation
 
@@ -43,15 +43,15 @@ Implemented multivariable Linear Regression using Batch Gradient Descent optimiz
 
 ### Features
 
-- Fully vectorized gradient descent
-- Multi-feature support
-- Automatic bias/intercept handling
-- Configurable learning rate
-- Configurable convergence tolerance
-- Maximum iteration handling
-- Runtime convergence warnings
-- Feature validation during prediction
-- Supports both 1D and 2D input arrays
+* Fully vectorized gradient descent
+* Multi-feature support
+* Automatic bias/intercept handling
+* Configurable learning rate
+* Configurable convergence tolerance
+* Maximum iteration handling
+* Runtime convergence warnings
+* Feature validation during prediction
+* Supports both 1D and 2D input arrays
 
 ### Mathematical Formulation
 
@@ -64,7 +64,7 @@ $$
 Cost function:
 
 $$
-J(\theta)=\frac{1}{2n}\|X\theta-y\|^2
+J(\theta)=\frac{1}{2n}|X\theta-y|^2
 $$
 
 Gradient:
@@ -93,17 +93,17 @@ Implemented multivariable Linear Regression using Stochastic Gradient Descent op
 
 ### Features
 
-- Stochastic Gradient Descent optimization
-- Per-sample weight updates
-- Random shuffling every epoch
-- Multi-feature support
-- Automatic bias/intercept handling
-- Configurable learning rate
-- Configurable convergence tolerance
-- Maximum iteration handling
-- Runtime convergence warnings
-- Feature validation during prediction
-- Supports both 1D and 2D input arrays
+* Stochastic Gradient Descent optimization
+* Per-sample weight updates
+* Random shuffling every epoch
+* Multi-feature support
+* Automatic bias/intercept handling
+* Configurable learning rate
+* Configurable convergence tolerance
+* Maximum iteration handling
+* Runtime convergence warnings
+* Feature validation during prediction
+* Supports both 1D and 2D input arrays
 
 ### Mathematical Formulation
 
@@ -145,18 +145,18 @@ Implemented multivariable Linear Regression using Mini-Batch Gradient Descent op
 
 ### Features
 
-- Mini-Batch Gradient Descent optimization
-- Random shuffling every epoch
-- Configurable mini-batch size
-- Multi-feature support
-- Automatic bias/intercept handling
-- Configurable learning rate
-- Configurable convergence tolerance
-- Maximum iteration handling
-- Runtime convergence warnings
-- Fully vectorized batch updates
-- Feature validation during prediction
-- Supports both 1D and 2D input arrays
+* Mini-Batch Gradient Descent optimization
+* Random shuffling every epoch
+* Configurable mini-batch size
+* Multi-feature support
+* Automatic bias/intercept handling
+* Configurable learning rate
+* Configurable convergence tolerance
+* Maximum iteration handling
+* Runtime convergence warnings
+* Fully vectorized batch updates
+* Feature validation during prediction
+* Supports both 1D and 2D input arrays
 
 ### Mathematical Formulation
 
@@ -192,6 +192,75 @@ $$
 
 ---
 
+## 5. Learning Rate Schedules
+
+Implemented multiple Learning Rate Scheduling strategies for controlling optimization dynamics during gradient-based learning.
+
+### Implemented Schedulers
+
+* Step Decay Scheduler
+* Time-Based Decay Scheduler
+* Exponential Decay Scheduler
+* Inverse Scaling Scheduler
+* Adaptive Learning Rate Scheduler
+
+### Features
+
+* Modular scheduler design
+* Plug-and-play integration with gradient descent models
+* Dynamic learning rate adjustment
+* Supports epoch-based scheduling
+* Supports performance-based adaptive scheduling
+* Optimization stability improvements
+* Smooth and abrupt decay strategies
+* Fully customizable scheduler hyperparameters
+
+### Mathematical Formulations
+
+Step Decay:
+
+$$
+\eta_t = \eta_0 \cdot \gamma^{\lfloor t/s \rfloor}
+$$
+
+Time-Based Decay:
+
+$$
+\eta_t = \frac{\eta_0}{1 + kt}
+$$
+
+Exponential Decay:
+
+$$
+\eta_t = \eta_0 e^{-kt}
+$$
+
+Inverse Scaling:
+
+$$
+\eta_t = \frac{\eta_0}{t^p}
+$$
+
+Adaptive Learning Rate:
+
+$$
+\eta_{t+1} =
+\eta_t \cdot \gamma
+\quad
+\text{if validation loss plateaus}
+$$
+
+Where:
+
+* $\eta_0$ = initial learning rate
+* $\eta_t$ = learning rate at epoch/iteration $t$
+* $\gamma$ = decay factor
+* $k$ = decay rate
+* $p$ = inverse scaling power term
+* $s$ = step interval
+
+---
+
 # Learning Roadmap
 
 ```text
@@ -207,7 +276,7 @@ REGRESSION MODELS
 
 ✅ 4. Linear Regression using Mini-Batch Gradient Descent
 
-⬜ 5. Learning Rate Schedules
+✅ 5. Learning Rate Schedules
 
 ⬜ 6. Regularization
       ├── Ridge Regression (L2)
@@ -239,8 +308,8 @@ CLASSIFICATION MODELS
 
 # Technologies Used
 
-- Python
-- NumPy
+* Python
+* NumPy
 
 ---
 
@@ -253,6 +322,7 @@ Scratch-Codes-ML/
 ├── linear_regression_gd.py
 ├── sgd_regressor.py
 ├── mini_batch_gd_regressor.py
+├── learning_rate_schedulers.py
 ├── README.md
 └── LICENSE
 ```
@@ -261,23 +331,24 @@ Scratch-Codes-ML/
 
 # Goals of This Repository
 
-- Understand Machine Learning mathematically
-- Implement ML algorithms without ML libraries
-- Learn vectorized numerical computing
-- Build intuition for optimization algorithms
-- Understand gradient-based learning
-- Develop strong fundamentals in ML and numerical methods
+* Understand Machine Learning mathematically
+* Implement ML algorithms without ML libraries
+* Learn vectorized numerical computing
+* Build intuition for optimization algorithms
+* Understand gradient-based learning
+* Develop strong fundamentals in ML and numerical methods
 
 ---
 
 # Learning Philosophy
 
 This repository focuses on:
-- mathematical derivations
-- vectorized implementations
-- numerical optimization
-- understanding how algorithms work internally
-- building ML models from scratch instead of relying on high-level libraries
+
+* mathematical derivations
+* vectorized implementations
+* numerical optimization
+* understanding how algorithms work internally
+* building ML models from scratch instead of relying on high-level libraries
 
 ---
 
