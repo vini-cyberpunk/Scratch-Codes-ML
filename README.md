@@ -261,6 +261,110 @@ Where:
 
 ---
 
+## 6. Ridge Regression (L2 Regularization)
+
+Implemented Ridge Regression from scratch using the closed-form analytical solution with L2 regularization.
+
+### Features
+
+* Closed-form Ridge Regression solution
+* L2 regularization
+* Bias exclusion from regularization
+* Multi-feature support
+* Automatic bias/intercept handling
+* Fully vectorized NumPy implementation
+* Feature validation during prediction
+* Supports both 1D and 2D input arrays
+* Numerically stabilized matrix inversion
+
+### Mathematical Formulation
+
+Ridge objective function:
+
+$$
+J(\theta)=||X\theta-y||^2+\lambda ||\theta||_2^2
+$$
+
+Closed-form Ridge solution:
+
+$$
+\theta=(X^TX+\lambda I)^{-1}X^Ty
+$$
+
+Where:
+
+* $\lambda$ = regularization strength
+* $I$ = identity matrix
+
+### Key Concepts Learned
+
+* L2 regularization
+* Weight shrinkage
+* Numerical stability improvements
+* Bias-variance tradeoff
+* Matrix regularization
+* Multicollinearity handling
+
+---
+
+## 7. Lasso Regression (L1 Regularization)
+
+Implemented Lasso Regression from scratch using Coordinate Descent optimization and Soft Thresholding.
+
+### Features
+
+* Coordinate Descent optimization
+* Soft Thresholding operator
+* L1 regularization
+* Sparse weight generation
+* Automatic feature selection behavior
+* Bias exclusion from regularization
+* Multi-feature support
+* Automatic bias/intercept handling
+* Fully vectorized residual computation
+* Convergence checking
+* Runtime convergence warnings
+* Feature validation during prediction
+* Supports both 1D and 2D input arrays
+
+### Mathematical Formulation
+
+Lasso objective function:
+
+$$
+J(\theta)=||X\theta-y||^2+\lambda ||\theta||_1
+$$
+
+Soft Thresholding operator:
+
+$$
+S(z,\lambda)=\text{sign}(z)\max(|z|-\lambda,0)
+$$
+
+Coordinate Descent update rule:
+
+$$
+w_j=\frac{S(\rho_j,\lambda)}{z_j}
+$$
+
+Where:
+
+* $\lambda$ = regularization strength
+* $\rho_j = x_j^Tr_j$
+* $z_j = x_j^Tx_j$
+
+### Key Concepts Learned
+
+* L1 regularization
+* Sparse optimization
+* Coordinate Descent
+* Soft Thresholding
+* Feature selection
+* Convex optimization
+* Iterative optimization methods
+
+---
+
 # Learning Roadmap
 
 ```text
@@ -278,9 +382,9 @@ REGRESSION MODELS
 
 ✅ 5. Learning Rate Schedules
 
-⬜ 6. Regularization
-      ├── Ridge Regression (L2)
-      └── Lasso Regression (L1)
+✅ 6. Regularization
+      ├── ✅ Ridge Regression (L2)
+      └── ✅ Lasso Regression (L1)
 
 ⬜ 7. Kernel Regression
 
@@ -323,6 +427,8 @@ Scratch-Codes-ML/
 ├── sgd_regressor.py
 ├── mini_batch_gd_regressor.py
 ├── learning_rate_schedulers.py
+├── ridge_regression.py
+├── lasso_regression.py
 ├── README.md
 └── LICENSE
 ```
@@ -336,6 +442,9 @@ Scratch-Codes-ML/
 * Learn vectorized numerical computing
 * Build intuition for optimization algorithms
 * Understand gradient-based learning
+* Understand regularization techniques
+* Learn sparse optimization methods
+* Understand convex optimization fundamentals
 * Develop strong fundamentals in ML and numerical methods
 
 ---
@@ -347,6 +456,9 @@ This repository focuses on:
 * mathematical derivations
 * vectorized implementations
 * numerical optimization
+* regularization theory
+* sparse learning
+* convex optimization
 * understanding how algorithms work internally
 * building ML models from scratch instead of relying on high-level libraries
 
@@ -355,3 +467,4 @@ This repository focuses on:
 # Author
 
 Vinit Agrawal
+
